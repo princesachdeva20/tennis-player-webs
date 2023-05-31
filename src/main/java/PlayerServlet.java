@@ -9,6 +9,12 @@ import java.io.PrintWriter;
 public class PlayerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String playerfirstName = request.getParameter("firstname");
+        System.out.println(playerfirstName);
+        String playerlastName = request.getParameter("lastname");
+       // System.out.println(playerfirstName);
+        request.setAttribute("firstname", playerfirstName);
+        request.setAttribute("lastname", playerlastName);
         request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
     }
 }
