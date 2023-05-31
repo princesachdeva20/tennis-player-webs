@@ -1,25 +1,14 @@
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 @WebServlet(urlPatterns = "/player.do")
-public class PlayerServlet extends HttpServlet{
-
+public class PlayerServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
-        PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<head>" +
-                "<title>Player DB</title>" +
-                "</head>");
-        out.println("<body>" +
-                "<H2>Welcome to the Tennis Players database!</H2>" +
-                "</body>");
-        out.println("</html>");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        request.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(request, response);
     }
 }
